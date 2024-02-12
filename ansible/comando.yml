@@ -1,0 +1,17 @@
+---
+- name: Copiar archivo localmente
+  hosts: localhost
+  tasks:
+    -name: Iniciar ngnix
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+    - name: Copiar archivo
+      copy:
+        src: /home/ubuntu/Practica1SA/dist
+        dest: /var/www/
+    - name: Copiar nginx file
+      copy:
+        src: /home/ubuntu/Practica1SA/nginx
+        dest: /etc/nginx/sites-enabled/
