@@ -12,8 +12,8 @@
         name: nginx
         state: started
         enabled: yes
-        
-    - name: Copiar archivo
+
+    - name: deploy webpage
       copy:
         src: /home/ubuntu/Practica1SA2/pagina/front.html
-        dest: /var/www/html/
+        dest: /var/www/html
