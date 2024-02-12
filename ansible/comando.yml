@@ -1,7 +1,18 @@
 ---
-- name: Copiar archivo en local
-  hosts: localhost
+- name: install nginx server and static website
+  hosts: all
+  become: yes
   tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: latest
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+        
     - name: Copiar archivo
       copy:
         src: /home/ubuntu/Practica1SA2/pagina/front.html
