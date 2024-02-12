@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practica 1 - Software Avanzado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    
+    h2 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .info {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    
+    .reloj {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    #hora, #fecha {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Practica 1</h1>
+    <h2>Software Avanzado</h2>
+  </header>
+  <main>
+    <section class="info">
+      <p>Carne: 201901907</p>
+      <p>Nombres y apellidos: Byron Estuardo Caal Catun</p>
+    </section>
+    <section class="reloj">
+      <p id="hora"></p>
+      <p id="fecha"></p>
+      <script>
+        const hora = document.getElementById("hora");
+        const fecha = document.getElementById("fecha");
+        
+        function actualizarReloj() {
+          const ahora = new Date();
+          const opcionesFecha = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          };
+          const opcionesHora = {
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+          };
+          
+          hora.textContent = ahora.toLocaleTimeString("es-GT", opcionesHora);
+          fecha.textContent = ahora.toLocaleDateString("es-GT", opcionesFecha);
+        }
+        
+        setInterval(actualizarReloj, 1000);
+        
+        actualizarReloj();
+      </script>
+    </section>
+  </main>
+</body>
+</html>
